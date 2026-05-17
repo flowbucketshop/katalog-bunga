@@ -5,13 +5,13 @@ import streamlit as st
 # ==========================================
 # KONFIGURASI HALAMAN
 # ==========================================
-st.set_page_config(page_title="Katalog Anggrek", layout="wide")
+st.set_page_config(page_title="Katalog Bunga", layout="wide")
 
 # 1. Tampilkan Banner Utama
 if os.path.exists("anggrekku.png"):
     st.image("anggrekku.png", use_container_width=True)
 
-st.title("🌸 Koleksi Anggrek Berdasarkan Kategori")
+st.title("🌸 Koleksi Bouquet Bunga Berdasarkan Kategori")
 st.divider()
 
 # ==========================================
@@ -25,7 +25,7 @@ try:
         daftar_kategori = df["kategori"].unique()
 
         for kat in daftar_kategori:
-            st.header(f"🌿 Anggrek Jenis {kat.capitalize()}")
+            st.header(f"🌿 Jenis {kat.capitalize()}")
             data_per_kat = df[df["kategori"] == kat]
 
             # Membuat layout 4 kolom untuk produk
