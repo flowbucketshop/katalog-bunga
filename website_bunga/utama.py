@@ -18,8 +18,8 @@ st.divider()
 # MEMBACA & MENAMPILKAN DATA KATALOG
 # ==========================================
 try:
-    if os.path.exists("data_bunga.csv"):
-        df = pd.read_csv("data_bunga.csv")
+    if os.path.exists("website_bunga/data_bunga.csv"):
+        df = pd.read_csv("website_bunga/data_bunga.csv")
         df = df.dropna(subset=["foto"])
 
         daftar_kategori = df["kategori"].unique()
@@ -35,8 +35,9 @@ try:
                 nama_foto = str(row["foto"]).strip()
 
                 with cols[index % 4]:
-                    if os.path.exists(nama_foto):
-                        st.image(nama_foto, use_container_width=True)
+                    foto_lengkap = f"website_bunga/{nama_foto}"
+                    if os.path.exists(foto_lengkap):
+                        st.image(foto_lengkap, use_container_width=True)
                         st.subheader(row["nama"])
 
                         # --- HARGA & STATUS DENGAN FONT LEBIH BESAR ---
